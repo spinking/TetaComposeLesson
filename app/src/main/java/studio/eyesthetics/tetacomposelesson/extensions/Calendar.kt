@@ -14,7 +14,7 @@ fun Calendar.clearHours(): Calendar {
 fun Calendar.formatToYearAndMonth(): String {
     val yearFormat = SimpleDateFormat("yyyy", Locale.getDefault())
     val monthFormat = SimpleDateFormat("LLLL", Locale.getDefault())
-    return "${yearFormat.format(this.time)}-${monthFormat.format(this.time)
+    return "${yearFormat.format(this.time)} - ${monthFormat.format(this.time)
         .replaceFirstChar { 
             if (it.isLowerCase()) 
                 it.titlecase(Locale.getDefault())

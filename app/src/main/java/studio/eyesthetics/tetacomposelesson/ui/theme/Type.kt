@@ -6,6 +6,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
+//Сознательно не использую MTS Sans, потому что репа открытая
 val Typography = Typography(
     h6 = TextStyle(
         fontFamily = FontFamily.Default,

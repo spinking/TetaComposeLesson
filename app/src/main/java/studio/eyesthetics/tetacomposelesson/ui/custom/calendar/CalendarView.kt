@@ -58,7 +58,7 @@ fun CalendarView(
             var index = 1
             while (items.size < maxCalendarColumn) {
                 calendar.timeInMillis
-                if (index <= startEmptyDays || index >= maxCalendarVisibleColumn) {
+                if (index <= startEmptyDays || index > maxCalendarVisibleColumn) {
                     items.add(
                         CalendarItem(
                             id = UUID.randomUUID().toString(),
