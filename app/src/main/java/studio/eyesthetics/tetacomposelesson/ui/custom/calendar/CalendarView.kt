@@ -57,50 +57,38 @@ fun CalendarView(
             val maxCalendarColumn = maxCalendarVisibleColumn + endEmptyDays
 
             var index = 1
-            while (items.size < startEmptyDays) {
-                items.add(
-                    CalendarItem(
-                        id = UUID.randomUUID().toString(),
-                        dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH),
-                        date = calendar.time,
-                        status = CalendarItemStatus.EMPTY,
-                        color = emptyColor
-                    )
-                )
-                index++
-            }
-            while (items.size < maxCalendarVisibleColumn) {
-                calendar.timeInMillis
-                items.add(
-                    CalendarItem(
-                        id = UUID.randomUUID().toString(),
-                        dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH),
-                        date = calendar.time,
-                        status = if (selectedItem.value?.date?.time == calendar.timeInMillis)
-                            CalendarItemStatus.ACTIVE
-                        else
-                            CalendarItemStatus.DEFAULT,
-                        color = when {
-                            startDate?.time == calendar.timeInMillis -> todayColor
-                            index % 7 == 6 || index % 7 == 0 -> ColorGrayChateau
-                            else -> defaultColor
-                        }
-                    )
-                )
-                if (selectedItem.value?.date?.time == calendar.timeInMillis) selectedItem.value = items.last()
-                index++
-                calendar.add(Calendar.DAY_OF_MONTH, 1)
-            }
             while (items.size < maxCalendarColumn) {
-                items.add(
-                    CalendarItem(
-                        id = UUID.randomUUID().toString(),
-                        dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH),
-                        date = calendar.time,
-                        status = CalendarItemStatus.EMPTY,
-                        color = emptyColor
+                calendar.timeInMillis
+                if (index <= startEmptyDays || index >= maxCalendarVisibleColumn) {
+                    items.add(
+                        CalendarItem(
+                            id = UUID.randomUUID().toString(),
+                            dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH),
+                            date = calendar.time,
+                            status = CalendarItemStatus.EMPTY,
+                            color = emptyColor
+                        )
                     )
-                )
+                } else {
+                    items.add(
+                        CalendarItem(
+                            id = UUID.randomUUID().toString(),
+                            dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH),
+                            date = calendar.time,
+                            status = if (selectedItem.value?.date?.time == calendar.timeInMillis)
+                                CalendarItemStatus.ACTIVE
+                            else
+                                CalendarItemStatus.DEFAULT,
+                            color = when {
+                                startDate?.time == calendar.timeInMillis -> todayColor
+                                index % 7 == 6 || index % 7 == 0 -> ColorGrayChateau
+                                else -> defaultColor
+                            }
+                        )
+                    )
+                    if (selectedItem.value?.date?.time == calendar.timeInMillis) selectedItem.value = items.last()
+                    calendar.add(Calendar.DAY_OF_MONTH, 1)
+                }
                 index++
             }
             cells.value = items
