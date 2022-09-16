@@ -15,6 +15,7 @@ fun ScheduleTitle(
     Text(
         text = title.uppercase(),
         style = MaterialTheme.typography.body1,
+        color = MaterialTheme.colors.onBackground,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 12.dp, vertical = 8.dp)

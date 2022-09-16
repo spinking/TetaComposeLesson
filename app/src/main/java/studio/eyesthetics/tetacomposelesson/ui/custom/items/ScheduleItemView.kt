@@ -36,6 +36,7 @@ fun ScheduleItemView(
         Text(
             text = item.time.formatToTime(),
             style = MaterialTheme.typography.body1,
+            color = MaterialTheme.colors.onBackground,
             modifier = Modifier.constrainAs(tvTime) {
                 start.linkTo(ivMark.end, margin = 12.dp)
                 top.linkTo(parent.top)
@@ -45,6 +46,7 @@ fun ScheduleItemView(
         Text(
             text = item.action,
             style = MaterialTheme.typography.body1,
+            color = MaterialTheme.colors.onBackground,
             modifier = Modifier.constrainAs(tvAction) {
                 start.linkTo(tvTime.end, margin = 12.dp)
                 end.linkTo(parent.end)

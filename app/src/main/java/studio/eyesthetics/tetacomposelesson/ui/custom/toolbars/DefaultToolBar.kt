@@ -31,12 +31,17 @@ fun DefaultToolBar(label: String, modifier: Modifier = Modifier, onBackPressed: 
             onClick = {
                 onBackPressed.invoke()
             }) {
-            Icon(painter = painterResource(id = R.drawable.ic_back), contentDescription = "back")
+            Icon(
+                painter = painterResource(id = R.drawable.ic_back),
+                contentDescription = "back",
+                tint = MaterialTheme.colors.onBackground
+            )
         }
 
         Text(
             text = label,
             style = MaterialTheme.typography.h6,
+            color = MaterialTheme.colors.onBackground,
             modifier = Modifier.constrainAs(tvTitle) {
                 start.linkTo(btnBack.end, margin = 4.dp)
                 end.linkTo(parent.end, margin = 24.dp)

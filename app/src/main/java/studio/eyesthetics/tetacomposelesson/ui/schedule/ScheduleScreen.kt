@@ -1,9 +1,11 @@
 package studio.eyesthetics.tetacomposelesson.ui.schedule
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -45,6 +47,7 @@ fun ScheduleScreen(
 
     Column(modifier = Modifier
         .fillMaxSize()
+        .background(MaterialTheme.colors.background)
     ) {
         DefaultToolBar(
             label = "${stringResource(R.string.schedule_label)} ${date.formatToString()}",

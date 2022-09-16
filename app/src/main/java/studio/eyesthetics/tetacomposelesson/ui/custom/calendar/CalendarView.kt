@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import studio.eyesthetics.tetacomposelesson.extensions.clearHours
 import studio.eyesthetics.tetacomposelesson.extensions.formatToYearAndMonth
-import studio.eyesthetics.tetacomposelesson.ui.theme.ColorWhite
 import studio.eyesthetics.tetacomposelesson.R
 import studio.eyesthetics.tetacomposelesson.extensions.getDayOfWeek
 import studio.eyesthetics.tetacomposelesson.ui.theme.ColorGrayChateau
@@ -98,7 +97,7 @@ fun CalendarView(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(ColorWhite)
+            .background(MaterialTheme.colors.background)
     ) {
 
         Box(modifier = Modifier
