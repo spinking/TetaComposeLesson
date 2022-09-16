@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TetaComposeLesson</string>
+    <string name="butotn_ok">ОК</string>
+    <string name="caneldar_accept_button">Открыть расписание</string>
 </resources>
