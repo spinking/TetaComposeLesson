@@ -1,6 +1,5 @@
 package studio.eyesthetics.tetacomposelesson.extensions
 
-import androidx.compose.ui.text.capitalize
 import java.text.SimpleDateFormat
 import java.util.*
 

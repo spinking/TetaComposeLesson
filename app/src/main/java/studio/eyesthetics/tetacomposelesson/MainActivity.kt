@@ -27,7 +27,12 @@ class MainActivity : ComponentActivity() {
                         currentScreen.value = it
                     }
                     is Screen.Schedule -> {
-                        ScheduleScreen(date = (currentScreen.value as Screen.Schedule).date)
+                        ScheduleScreen(
+                            date = (currentScreen.value as Screen.Schedule).date,
+                            onBackPressed = {
+                                currentScreen.value = Screen.Calendar
+                            }
+                        )
                     }
                 }
 
